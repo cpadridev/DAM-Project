@@ -276,12 +276,8 @@ namespace tpv
             }
         }
 
-        private void btnDeleteList_Click(object sender, RoutedEventArgs e)
+        private void ClearFields()
         {
-            mvSaleDetails.newSaleDetails.Clear();
-
-            dataGridSaleDetails.Items.Refresh();
-
             btnDeleteList.IsEnabled = false;
             txtTotal.Text = "0";
             txtNameProduct.Text = string.Empty;
@@ -290,6 +286,15 @@ namespace tpv
             txtIvaProduct.Text = string.Empty;
             txtOfferProduct.Text = string.Empty;
             txtTotalProduct.Text = string.Empty;
+        }
+
+        private void btnDeleteList_Click(object sender, RoutedEventArgs e)
+        {
+            mvSaleDetails.newSaleDetails.Clear();
+
+            dataGridSaleDetails.Items.Refresh();
+
+            ClearFields();
         }
 
         private void btnNumber_Click(object sender, RoutedEventArgs e)
@@ -424,14 +429,7 @@ namespace tpv
                 }
                 else
                 {
-                    btnDeleteList.IsEnabled = false;
-                    txtNameProduct.Text = string.Empty;
-                    txbQuantityProduct.Text = string.Empty;
-                    txtPriceProduct.Text = string.Empty;
-                    txtTotalProduct.Text = string.Empty;
-                    txtIvaProduct.Text = string.Empty;
-                    txtOfferProduct.Text = string.Empty;
-                    txtTotal.Text = "0";
+                    ClearFields();
                 }
             }
         }
@@ -488,14 +486,7 @@ namespace tpv
                 mvSaleDetails.newSaleDetails.Clear();
                 dataGridSaleDetails.Items.Refresh();
 
-                btnDeleteList.IsEnabled = false;
-                txtTotal.Text = "0";
-                txtNameProduct.Text = string.Empty;
-                txbQuantityProduct.Text = string.Empty;
-                txtPriceProduct.Text = string.Empty;
-                txtIvaProduct.Text = string.Empty;
-                txtOfferProduct.Text = string.Empty;
-                txtTotalProduct.Text = string.Empty;
+                ClearFields();
             }
         }
 
