@@ -163,11 +163,44 @@
     <Compile Include="Backend\Models\user.cs">
       <DependentUpon>TPVModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Backend\Services\SaleService.cs" />
+    <Compile Include="Backend\Services\SaleDetailsService.cs" />
+    <Compile Include="Backend\Services\CustomerService.cs" />
     <Compile Include="Backend\Services\ProductService.cs" />
     <Compile Include="Backend\Services\CategoryService.cs" />
+    <Compile Include="Frontend\Dialogs\EditProfileDialog.xaml.cs">
+      <DependentUpon>EditProfileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Dialogs\MakePurchaseDailog.xaml.cs">
+      <DependentUpon>MakePurchaseDailog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\UserControls\UCChangePassword.xaml.cs">
+      <DependentUpon>UCChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\UserControls\UCEditProfile.xaml.cs">
+      <DependentUpon>UCEditProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\MVSale.cs" />
+    <Compile Include="MVVM\MVUser.cs" />
     <Compile Include="MVVM\MVSaleDetails.cs" />
-    <Compile Include="TouchScrolling.cs" />
+    <Compile Include="Resources\Useful\TouchScrolling.cs" />
+    <Page Include="Frontend\Dialogs\EditProfileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frontend\Dialogs\LoginDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frontend\Dialogs\MakePurchaseDailog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frontend\UserControls\UCChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frontend\UserControls\UCEditProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

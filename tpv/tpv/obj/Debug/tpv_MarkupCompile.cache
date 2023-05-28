@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\cpadri2003\Desktop\a\tpv\tpv\obj\Debug\
+C:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\obj\Debug\
 tpv
 none
 false
 DEBUG;TRACE
-C:\Users\cpadri2003\Desktop\a\tpv\tpv\App.xaml
-294011431
+C:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\App.xaml
+6778323119
 2603630547
-3188852328
-31-1379819952
-Frontend\Dialogs\LoginDialog.xaml;MainWindow.xaml;
+40-1521951628
+31252823477
+Frontend\Dialogs\EditProfileDialog.xaml;Frontend\Dialogs\LoginDialog.xaml;Frontend\Dialogs\MakePurchaseDailog.xaml;Frontend\UserControls\UCChangePassword.xaml;Frontend\UserControls\UCEditProfile.xaml;MainWindow.xaml;
 
 False
 

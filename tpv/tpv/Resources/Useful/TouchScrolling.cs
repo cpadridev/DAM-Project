@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows;
 
-namespace tpv
+namespace tpv.Resources.Useful
 {
     public class TouchScrolling : DependencyObject
     {

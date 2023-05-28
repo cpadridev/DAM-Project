@@ -11,8 +11,10 @@ namespace tpv.Backend.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class sale
+    using System.ComponentModel.DataAnnotations;
+    using tpv.MVVM.Base;
+
+    public partial class sale : PropertyChangedDataError
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public sale()
@@ -21,16 +23,19 @@ namespace tpv.Backend.Models
         }
     
         public int id_sale { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public System.DateTime date { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public string payment { get; set; }
         public double total { get; set; }
         public byte[] ticket { get; set; }
         public int id_customer { get; set; }
         public int id_user { get; set; }
-    
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public virtual customer customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sale_details> sale_details { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public virtual user user { get; set; }
     }
 }

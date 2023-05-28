@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
@@ -23,6 +24,7 @@ namespace tpv
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private tpvEntities tpvEntities;
         private UserService userServ;
         private CategoryService catServ;
         private ProductService prodServ;
@@ -33,6 +35,7 @@ namespace tpv
         public MainWindow(tpvEntities tpvEntities, user user)
         {
             InitializeComponent();
+            this.tpvEntities = tpvEntities;
             catServ = new CategoryService(tpvEntities);
             prodServ = new ProductService(tpvEntities);
             userServ = new UserService(tpvEntities);
@@ -46,6 +49,7 @@ namespace tpv
             CheckPermissions();
             CreateNumbers();
             ShowCategories();
+            ShowProducts(1);
         }
 
         private void CheckPermissions()
@@ -227,13 +231,13 @@ namespace tpv
                     {
                         mvSaleDetails.newSaleDetails.Add(saleDetails);
 
-                        if (!string.IsNullOrEmpty(txbTotal.Text))
+                        if (!string.IsNullOrEmpty(txtTotal.Text))
                         {
-                            txbTotal.Text = Math.Round(double.Parse(txbTotal.Text.Remove(txbTotal.Text.Length - 1)) + saleDetails.price, 2).ToString() + "€";
+                            txtTotal.Text = Math.Round(double.Parse(txtTotal.Text) + saleDetails.price, 2).ToString();
                         }
                         else
                         {
-                            txbTotal.Text = saleDetails.price + "€";
+                            txtTotal.Text = saleDetails.price.ToString();
                         }
 
                         dataGridSaleDetails.Items.Refresh();
@@ -279,13 +283,13 @@ namespace tpv
             dataGridSaleDetails.Items.Refresh();
 
             btnDeleteList.IsEnabled = false;
-            txbTotal.Text = "0€";
-            txbNameProduct.Text = string.Empty;
+            txtTotal.Text = "0";
+            txtNameProduct.Text = string.Empty;
             txbQuantityProduct.Text = string.Empty;
-            txbPriceProduct.Text = string.Empty;
-            txbIvaProduct.Text = string.Empty;
-            txbOfferProduct.Text = string.Empty;
-            txbTotalProduct.Text = string.Empty;
+            txtPriceProduct.Text = string.Empty;
+            txtIvaProduct.Text = string.Empty;
+            txtOfferProduct.Text = string.Empty;
+            txtTotalProduct.Text = string.Empty;
         }
 
         private void btnNumber_Click(object sender, RoutedEventArgs e)
@@ -383,8 +387,8 @@ namespace tpv
                 dataGridSaleDetails.Items.Refresh();
                 dataGridSaleDetails.SelectedItem = saleDetails;
 
-                txbTotalProduct.Text = saleDetails.price.ToString() + "€";
-                txbTotal.Text = Math.Round(double.Parse(txbTotal.Text.Remove(txbTotal.Text.Length - 1)) - pastPrice + saleDetails.price, 2).ToString() + "€";
+                txtTotalProduct.Text = saleDetails.price.ToString() + "€";
+                txtTotal.Text = Math.Round(double.Parse(txtTotal.Text) - pastPrice + saleDetails.price, 2).ToString();
             }
         }
 
@@ -403,31 +407,31 @@ namespace tpv
                     dataGridSaleDetails.SelectedItem = lastitem;
                     dataGridSaleDetails.ScrollIntoView(lastitem);
                     dataGridSaleDetails.Focus();
-                    txbTotal.Text = Math.Round(double.Parse(txbTotal.Text.Remove(txbTotal.Text.Length - 1)) - saleDetails.price, 2).ToString() + "€";
+                    txtTotal.Text = Math.Round(double.Parse(txtTotal.Text) - saleDetails.price, 2).ToString();
 
-                    txbNameProduct.Text = lastitem.product.name;
+                    txtNameProduct.Text = lastitem.product.name;
                     txbQuantityProduct.Text = lastitem.quantity.ToString();
-                    txbPriceProduct.Text = lastitem.product.price.ToString() + "€";
+                    txtPriceProduct.Text = lastitem.product.price.ToString() + "€";
                     if (lastitem.product.iva != null )
                     {
-                        txbIvaProduct.Text = lastitem.product.iva.ToString() + "%";
+                        txtIvaProduct.Text = lastitem.product.iva.ToString() + "%";
                     }
                     if (lastitem.product.offer != null && lastitem.product.offer.discount != null)
                     {
-                        txbOfferProduct.Text = lastitem.product.offer.discount.ToString() + "%";
+                        txtOfferProduct.Text = lastitem.product.offer.discount.ToString() + "%";
                     }
-                    txbTotalProduct.Text = lastitem.price + "€";
+                    txtTotalProduct.Text = lastitem.price + "€";
                 }
                 else
                 {
                     btnDeleteList.IsEnabled = false;
-                    txbNameProduct.Text = string.Empty;
+                    txtNameProduct.Text = string.Empty;
                     txbQuantityProduct.Text = string.Empty;
-                    txbPriceProduct.Text = string.Empty;
-                    txbTotalProduct.Text = string.Empty;
-                    txbIvaProduct.Text = string.Empty;
-                    txbOfferProduct.Text = string.Empty;
-                    txbTotal.Text = "0€";
+                    txtPriceProduct.Text = string.Empty;
+                    txtTotalProduct.Text = string.Empty;
+                    txtIvaProduct.Text = string.Empty;
+                    txtOfferProduct.Text = string.Empty;
+                    txtTotal.Text = "0";
                 }
             }
         }
@@ -441,21 +445,21 @@ namespace tpv
             if (saleDetails != null)
             {
                 btnDeleteList.IsEnabled = true;
-                txbNameProduct.Text = saleDetails.product.name;
+                txtNameProduct.Text = saleDetails.product.name;
                 txbQuantityProduct.Text = saleDetails.quantity.ToString();
-                txbPriceProduct.Text = saleDetails.product.price + "€";
-                txbIvaProduct.Text = "0%";
-                txbOfferProduct.Text = string.Empty;
+                txtPriceProduct.Text = saleDetails.product.price + "€";
+                txtIvaProduct.Text = "0%";
+                txtOfferProduct.Text = string.Empty;
                 txbQuantityProduct.IsReadOnly = false;
                 if (saleDetails.product.iva != null)
                 {
-                    txbIvaProduct.Text = saleDetails.product.iva.ToString() + "%";
+                    txtIvaProduct.Text = saleDetails.product.iva.ToString() + "%";
                 }
                 if (saleDetails.product.offer != null && saleDetails.product.offer.discount != null)
                 {
-                    txbOfferProduct.Text = saleDetails.product.offer.discount.ToString() + "%";
+                    txtOfferProduct.Text = saleDetails.product.offer.discount.ToString() + "%";
                 }
-                txbTotalProduct.Text = saleDetails.price + "€";
+                txtTotalProduct.Text = saleDetails.price + "€";
                 if (userServ.GetPermissionsByUser(userServ.userLoggedIn.id_user).Find(r => r.id_permission == 1) != null)
                 {
                     btnContinue.IsEnabled = true;
@@ -475,7 +479,24 @@ namespace tpv
 
         private void btnContinue_Click(object sender, RoutedEventArgs e)
         {
-            // Dialog
+            MakePurchaseDailog dialog = new MakePurchaseDailog(tpvEntities, userServ.userLoggedIn, mvSaleDetails.newSaleDetails, Double.Parse(txtTotal.Text));
+            dialog.ShowDialog();
+
+            if (dialog.DialogResult ?? true)
+            {
+                ShowProducts(1);
+                mvSaleDetails.newSaleDetails.Clear();
+                dataGridSaleDetails.Items.Refresh();
+
+                btnDeleteList.IsEnabled = false;
+                txtTotal.Text = "0";
+                txtNameProduct.Text = string.Empty;
+                txbQuantityProduct.Text = string.Empty;
+                txtPriceProduct.Text = string.Empty;
+                txtIvaProduct.Text = string.Empty;
+                txtOfferProduct.Text = string.Empty;
+                txtTotalProduct.Text = string.Empty;
+            }
         }
 
         private void mniLogout_Click(object sender, RoutedEventArgs e)
@@ -487,7 +508,8 @@ namespace tpv
 
         private void mniEditProfile_Click(object sender, RoutedEventArgs e)
         {
-            // Dialog
+            EditProfileDialog dialog = new EditProfileDialog(tpvEntities, userServ.userLoggedIn);
+            dialog.ShowDialog();
         }
 
         private void mniReports_Click(object sender, RoutedEventArgs e)

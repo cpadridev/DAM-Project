@@ -1,0 +1,28 @@
+﻿<mah:MetroWindow x:Class="tpv.Frontend.Dialogs.EditProfileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:tpv.Frontend.Dialogs"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        ShowMaxRestoreButton="False"
+        ShowMinButton="False"
+        WindowStartupLocation="CenterScreen"
+        Title="EDITAR PERFIL" Width="800" Height="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Width="200" Background="#333">
+            <StackPanel Orientation="Horizontal" Margin="30">
+                <mat:PackIcon Kind="User" Margin="10, 10, 0, 0" Foreground="White" />
+                <TextBlock Text="TU CUENTA" Margin="10, 10, 0, 0" Foreground="White" />
+            </StackPanel>
+            <Button Content="Perfil" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="LightGray" Width="200" Height="44" HorizontalAlignment="Left" x:Name="btnProfile" Click="btnProfile_Click" />
+            <Button Content="Cambiar Contraseña" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="LightGray" Width="200" Height="44" HorizontalAlignment="Left" x:Name="btnChangePassword" Click="btnChangePassword_Click" Cursor="Hand" />
+        </StackPanel>
+        <Grid x:Name="gridCentral">
+            
+        </Grid>
+    </DockPanel>
+</mah:MetroWindow>

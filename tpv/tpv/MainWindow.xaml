@@ -6,6 +6,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:tpv"
+        xmlns:useful="clr-namespace:tpv.Resources.Useful"
         mc:Ignorable="d"
         Title="VENTAS" Height="1080" Width="1920" WindowState="Maximized">
     <Grid>
@@ -54,7 +55,7 @@
             </Menu>
         </Grid>
 
-        <ScrollViewer Grid.Column="0" Grid.Row="1" Width="300" local:TouchScrolling.IsEnabled="True">
+        <ScrollViewer Grid.Column="0" Grid.Row="1" Width="300" useful:TouchScrolling.IsEnabled="True">
             <Grid x:Name="gridCategories"></Grid>
         </ScrollViewer>
 
@@ -63,7 +64,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <ScrollViewer Grid.Row="1" Height="1000" local:TouchScrolling.IsEnabled="True">
+            <ScrollViewer Grid.Row="1" Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=StackPanel}}" useful:TouchScrolling.IsEnabled="True">
                 <WrapPanel x:Name="wrapPanelProducts" />
             </ScrollViewer>
             <Grid Grid.Row="0">
@@ -90,7 +91,7 @@
                 </Grid.RowDefinitions>
                 <DataGrid Grid.Row="0" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" AutoGenerateColumns="False" Height="300" x:Name="dataGridSaleDetails" SelectionChanged="dataGridSaleDetails_SelectionChanged" ItemsSource="{Binding newSaleDetails}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Producto" Width="150" Binding="{Binding product.name}" />
+                        <DataGridTextColumn Header="Producto" Width="190" Binding="{Binding product.name}" />
                         <DataGridTextColumn Header="Cantidad" Width="120" Binding="{Binding quantity}" />
                         <DataGridTextColumn Header="Precio" Width="120" Binding="{Binding product.price}" />
                         <DataGridTextColumn Header="Oferta" Width="120" Binding="{Binding product.offer.discount}" />
@@ -110,7 +111,7 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Margin="0, 0, 15, 0" Orientation="Horizontal">
                             <TextBlock Text="Producto:" VerticalAlignment="Center" />
-                            <TextBlock Width="150" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txbNameProduct" />
+                            <TextBlock Width="150" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txtNameProduct" />
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="0, 0, 15, 0"  Orientation="Horizontal">
                             <TextBlock Text="Cantidad:" VerticalAlignment="Center" />
@@ -118,25 +119,26 @@
                         </StackPanel>
                         <StackPanel Grid.Column="2" Margin="0, 0, 15, 0"  Orientation="Horizontal">
                             <TextBlock Text="Precio:" VerticalAlignment="Center" />
-                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txbPriceProduct" />
+                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txtPriceProduct" />
                         </StackPanel>
                         <StackPanel Grid.Column="3" Margin="0, 0, 15, 0"  Orientation="Horizontal">
                             <TextBlock Text="Oferta:" VerticalAlignment="Center" />
-                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txbOfferProduct" />
+                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txtOfferProduct" />
                         </StackPanel>
                         <StackPanel Grid.Column="4" Margin="0, 0, 15, 0"  Orientation="Horizontal">
                             <TextBlock Text="IVA:" VerticalAlignment="Center" />
-                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txbIvaProduct" />
+                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txtIvaProduct" />
                         </StackPanel>
                         <StackPanel Grid.Column="5" Orientation="Horizontal">
                             <TextBlock Text="Total:" VerticalAlignment="Center" />
-                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txbTotalProduct" />
+                            <TextBlock Width="40" TextAlignment="Center" VerticalAlignment="Center" Margin="10, 0, 0, 0" x:Name="txtTotalProduct" />
                         </StackPanel>
                     </Grid>
                 </Border>
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
                     <TextBlock Text="TOTAL:" FontSize="32" VerticalAlignment="Center" />
-                    <TextBlock Margin="20, 0, 0, 0" Width="100" FontSize="32" TextAlignment="Center" VerticalAlignment="Center" x:Name="txbTotal" />
+                    <TextBlock Margin="20, 0, 0, 0" FontSize="32" Text="0" TextAlignment="Center" VerticalAlignment="Center" x:Name="txtTotal" />
+                    <TextBlock Margin="10, 0, 0, 0" FontSize="32" Text="€" TextAlignment="Center" VerticalAlignment="Center" x:Name="txtEuro" />
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
