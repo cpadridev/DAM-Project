@@ -88,9 +88,46 @@ INSERT INTO `tpv`.`location` (`id_location`, `name`) VALUES ('5', 'Almacén');
 -- -----------------------------------------------------
 -- Insert data `tpv`.`product`
 -- -----------------------------------------------------
-INSERT INTO `tpv`.`product` (`id_product`, `name`, 'image', `price`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('1', 'Fanta Naranja', '/Images/fanta-naranja.png', '0.69', '100', '1', '3', '2');
-INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `quantity`, `id_category`, `id_location`) VALUES ('2', 'Lenguas', '/Images/lengua-chuche.png', '0.05', '1000', '4', '1');
-INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `quantity`, `id_category`, `id_location`) VALUES ('3', 'Sobres Copa Mundial 2022', '/Images/sobres-mundial.png', '1', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('1', 'Fanta Naranja', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('2', 'Producto1', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('3', 'Producto2', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('4', 'Producto3', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('5', 'Producto4', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('6', 'Producto5', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('7', 'Producto6', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('8', 'Producto7', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('9', 'Producto8', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('10', 'Producto9', '0.69', '4', '100', '1', '3', '2');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`, `id_offer`) VALUES ('11', 'Producto10', '0.69', '4', '100', '1', '3', '2');
+
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('12', 'Producto11', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('13', 'Producto12', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('14', 'Producto13', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('15', 'Producto14', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('16', 'Producto15', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('17', 'Producto16', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('18', 'Producto17', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('19', 'Producto18', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('20', 'Producto19', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('21', 'Producto20', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('22', 'Producto21', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('23', 'Producto22', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('24', 'Producto23', '0.05', '10', '1000', '4', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('25', 'Producto24', '0.05', '10', '1000', '4', '1');
+
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('26', 'Producto25', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('27', 'Producto26', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('28', 'Producto27', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('29', 'Producto28', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('30', 'Producto29', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('31', 'Producto30', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('32', 'Producto31', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('33', 'Producto32', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('34', 'Producto33', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('35', 'Producto34', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('36', 'Producto35', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('37', 'Producto36', '1', '21', '50', '8', '1');
+INSERT INTO `tpv`.`product` (`id_product`, `name`, `price`, `iva`, `quantity`, `id_category`, `id_location`) VALUES ('38', 'Producto37', '1', '21', '50', '8', '1');
 
 
 -- -----------------------------------------------------
