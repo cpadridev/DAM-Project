@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using tpv.Backend.Models;
+﻿using tpv.Backend.Models;
 using tpv.Backend.Services;
 using tpv.MVVM.Base;
 
@@ -7,13 +6,11 @@ namespace tpv.MVVM
 {
     internal class MVUser : MVBaseCRUD<user>
     {
-        private UserService userService;
         private user user;
 
         public MVUser(tpvEntities tpvEntities, user user)
         {
-            userService = new UserService(tpvEntities);
-            service = userService;
+            service = new UserService(tpvEntities);
             this.user = user;
         }
 

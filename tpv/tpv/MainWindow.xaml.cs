@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.UI.WebControls;
@@ -43,9 +42,7 @@ namespace tpv
             DataContext = mvSaleDetails;
             userServ.userLoggedIn = user;
             txtUsername.Text = userServ.userLoggedIn.username;
-            // Comprobar stock y aplicar stock
-            // Comprobar fecha de caducidad y aplicar oferta
-            // Comprobar temporada y aplicar oferta
+            
             CheckPermissions();
             CreateNumbers();
             ShowCategories();
@@ -467,12 +464,16 @@ namespace tpv
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            // Dialog
+            EditProductDialog dialog = new EditProductDialog(tpvEntities, false);
+            dialog.ShowDialog();
+            ShowProducts(1);
         }
 
         private void btnModifyProduct_Click(object sender, RoutedEventArgs e)
         {
-            // Dialog
+            EditProductDialog dialog = new EditProductDialog(tpvEntities, true);
+            dialog.ShowDialog();
+            ShowProducts(1);
         }
 
         private void btnContinue_Click(object sender, RoutedEventArgs e)
@@ -483,7 +484,8 @@ namespace tpv
             if (dialog.DialogResult ?? true)
             {
                 ShowProducts(1);
-                mvSaleDetails.newSaleDetails.Clear();
+                mvSaleDetails = new MVSaleDetails();
+                DataContext = mvSaleDetails;
                 dataGridSaleDetails.Items.Refresh();
 
                 ClearFields();
@@ -503,24 +505,16 @@ namespace tpv
             dialog.ShowDialog();
         }
 
-        private void mniReports_Click(object sender, RoutedEventArgs e)
-        {
-            // Dialog
-        }
-
         private void mniGraphs_Click(object sender, RoutedEventArgs e)
         {
-            // Dialog
+            ChartDialog dialog = new ChartDialog();
+            dialog.ShowDialog();
         }
 
         private void mniModifySales_Click(object sender, RoutedEventArgs e)
         {
-            // Dialog
-        }
-
-        private void mniAdvertisingCampaings_Click(object sender, RoutedEventArgs e)
-        {
-            // Dialog
+            ReturnSaleDialog dialog = new ReturnSaleDialog(tpvEntities);
+            dialog.ShowDialog();
         }
     }
 }

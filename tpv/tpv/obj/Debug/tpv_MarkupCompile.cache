@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\App.xaml
-6778323119
+9-645659414
 2603630547
-40-1521951628
-31252823477
-Frontend\Dialogs\EditProfileDialog.xaml;Frontend\Dialogs\LoginDialog.xaml;Frontend\Dialogs\MakePurchaseDailog.xaml;Frontend\UserControls\UCChangePassword.xaml;Frontend\UserControls\UCEditProfile.xaml;MainWindow.xaml;
+46-875375476
+36-304375310
+Frontend\Dialogs\ChartDialog.xaml;Frontend\Dialogs\EditProfileDialog.xaml;Frontend\Dialogs\LoginDialog.xaml;Frontend\Dialogs\EditProductDialog.xaml;Frontend\Dialogs\MakePurchaseDailog.xaml;Frontend\Dialogs\ReturnSaleDialog.xaml;Frontend\UserControls\UCChangePassword.xaml;Frontend\UserControls\UCEditProfile.xaml;MainWindow.xaml;
 
 False
 

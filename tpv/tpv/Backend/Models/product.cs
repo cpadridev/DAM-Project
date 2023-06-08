@@ -11,8 +11,10 @@ namespace tpv.Backend.Models
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class product
+    using System.ComponentModel.DataAnnotations;
+    using tpv.MVVM.Base;
+
+    public partial class product : PropertyChangedDataError
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public product()
@@ -21,11 +23,17 @@ namespace tpv.Backend.Models
         }
     
         public int id_product { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
+        [MaxLength(45, ErrorMessage = "El campo no puede contener más de 45 carácteres")]
         public string name { get; set; }
+        [MaxLength(255, ErrorMessage = "El campo no puede contener más de 255 carácteres")]
         public string description { get; set; }
         public byte[] image { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public double price { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public Nullable<int> iva { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int quantity { get; set; }
         public Nullable<System.DateTime> expiration_date { get; set; }
         public Nullable<System.DateTime> start_season { get; set; }
@@ -33,8 +41,10 @@ namespace tpv.Backend.Models
         public int id_category { get; set; }
         public int id_location { get; set; }
         public Nullable<int> id_offer { get; set; }
-    
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public virtual category category { get; set; }
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public virtual location location { get; set; }
         public virtual offer offer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

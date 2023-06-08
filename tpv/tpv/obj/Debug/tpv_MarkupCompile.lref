@@ -1,8 +1,11 @@
 ﻿
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\App.xaml;;
+FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\Dialogs\ChartDialog.xaml;;
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\Dialogs\EditProfileDialog.xaml;;
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\Dialogs\LoginDialog.xaml;;
+FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\Dialogs\EditProductDialog.xaml;;
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\Dialogs\MakePurchaseDailog.xaml;;
+FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\Dialogs\ReturnSaleDialog.xaml;;
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\UserControls\UCChangePassword.xaml;;
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\Frontend\UserControls\UCEditProfile.xaml;;
 FC:\Users\cpadri2003\Desktop\DAM-Project\tpv\tpv\MainWindow.xaml;;

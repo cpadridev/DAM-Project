@@ -11,7 +11,7 @@
         ShowMaxRestoreButton="False"
         ShowMinButton="False"
         WindowStartupLocation="CenterScreen"
-        Title="EDITAR PERFIL" Width="800" Height="800">
+        Title="EDITAR PERFIL" Width="750" Height="700">
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="200" Background="#333">
             <StackPanel Orientation="Horizontal" Margin="30">

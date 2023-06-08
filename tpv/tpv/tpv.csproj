@@ -62,6 +62,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.2.0.0\lib\net47\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -74,12 +80,21 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePoint.Client.14.0.4762.1000\lib\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePoint.Client.14.0.4762.1000\lib\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.3.5.8\lib\35\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.1.1\lib\net46\NLog.dll</HintPath>
@@ -163,16 +178,27 @@
     <Compile Include="Backend\Models\user.cs">
       <DependentUpon>TPVModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Backend\Services\OfferService.cs" />
+    <Compile Include="Backend\Services\LocationService.cs" />
     <Compile Include="Backend\Services\SaleService.cs" />
     <Compile Include="Backend\Services\SaleDetailsService.cs" />
     <Compile Include="Backend\Services\CustomerService.cs" />
     <Compile Include="Backend\Services\ProductService.cs" />
     <Compile Include="Backend\Services\CategoryService.cs" />
+    <Compile Include="Frontend\Dialogs\ChartDialog.xaml.cs">
+      <DependentUpon>ChartDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Dialogs\EditProfileDialog.xaml.cs">
       <DependentUpon>EditProfileDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Frontend\Dialogs\EditProductDialog.xaml.cs">
+      <DependentUpon>EditProductDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Frontend\Dialogs\MakePurchaseDailog.xaml.cs">
       <DependentUpon>MakePurchaseDailog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frontend\Dialogs\ReturnSaleDialog.xaml.cs">
+      <DependentUpon>ReturnSaleDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Frontend\UserControls\UCChangePassword.xaml.cs">
       <DependentUpon>UCChangePassword.xaml</DependentUpon>
@@ -181,9 +207,14 @@
       <DependentUpon>UCEditProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\MVSale.cs" />
+    <Compile Include="MVVM\MVProduct.cs" />
     <Compile Include="MVVM\MVUser.cs" />
     <Compile Include="MVVM\MVSaleDetails.cs" />
     <Compile Include="Resources\Useful\TouchScrolling.cs" />
+    <Page Include="Frontend\Dialogs\ChartDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Frontend\Dialogs\EditProfileDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,7 +223,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Frontend\Dialogs\EditProductDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Frontend\Dialogs\MakePurchaseDailog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Frontend\Dialogs\ReturnSaleDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
